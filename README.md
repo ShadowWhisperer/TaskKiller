@@ -3,6 +3,11 @@
 (Safely) force close all running proccesses, and services.   
 I call this script from a custom cleanup script, on infected or just slow running computers.  
 Build a list of running processes, sort by unique, check if it's required, then force kill it.  
+ 
+This works with Windows XP Pro and all other verions after.  
+Taskkill and tasklist are not part of XP Home. They can be downloaded from above, and placed in "C:\Windows\System32".  
+They were taken from a pro version of XP, when this script was first written.  
+
 
 ```diff
 - Dell / Alienware systems can cause BSOD with some pre-installed applications.
