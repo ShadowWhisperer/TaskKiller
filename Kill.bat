@@ -4,7 +4,7 @@
 :: Creator: ShadowWhisperer
 ::  Github: https://github.com/ShadowWhisperer
 :: Created: Sometime before 2015
-:: Updated: 10/12/2023
+:: Updated: 10/20/2023
 ::
 ::
 ::  Works with Windows XP Pro and all other verions after.
@@ -43,8 +43,6 @@ endlocal
 
 for /f "skip=1 tokens=*" %%a in ('type "%tmp%\2.txt"') do (
 if not "%%a"=="AWCC.Service.exe" (
-if not "%%a"=="Classic Shell.exe" (
-if not "%%a"=="ClassicStartMenu.exe" (
 if not "%%a"=="cmd.exe" (
 if not "%%a"=="CMGShieldSvc.exe" (
 if not "%%a"=="conhost.exe" (
@@ -80,7 +78,7 @@ if not "%%a"=="winlogon.exe" (
 if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
 taskkill /im "%%a" /f /t >nul 2>&1
-))))))))))))))))))))))))))))))))))))))
+))))))))))))))))))))))))))))))))))))
 
 
 :#Stop Services (1)
@@ -202,8 +200,6 @@ endlocal
 
 for /f "skip=1 tokens=*" %%a in ('type "%tmp%\2.txt"') do (
 if not "%%a"=="AWCC.Service.exe" (
-if not "%%a"=="Classic Shell.exe" (
-if not "%%a"=="ClassicStartMenu.exe" (
 if not "%%a"=="cmd.exe" (
 if not "%%a"=="CMGShieldSvc.exe" (
 if not "%%a"=="conhost.exe" (
@@ -239,4 +235,4 @@ if not "%%a"=="winlogon.exe" (
 if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
 wmic process where name='%%a' delete >nul 2>&1
-)))))))))))))))))))))))))))))))))))))))
+)))))))))))))))))))))))))))))))))))))
