@@ -1,7 +1,15 @@
 # TaskKiller
-(Safely) Force close all running proccesses and services
 
-    
+(Safely) force close all running proccesses, and services.   
+I call this script from a custom cleanup script, on infected or just slow running computers.  
+Build a list of running processes, sort by unique, check if it's required, then force kill it.  
+
+```diff
+- Dell / Alienware systems can cause BSOD with some pre-installed applications.
+- I work on a ton of Dells, but don't see many Alienware systems.
+```
+<br>  
+
     [Processes]
     ==================================================================================================================
     AWCC.Service.exe                         (
