@@ -77,8 +77,9 @@ if not "%%a"=="wininit.exe" (
 if not "%%a"=="winlogon.exe" (
 if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
+if not "%%a"=="WUDFCompanionHost.exe" (
 taskkill /im "%%a" /f /t >nul 2>&1
-))))))))))))))))))))))))))))))))))))
+)))))))))))))))))))))))))))))))))))))
 
 
 :#Stop Services (1)
@@ -234,5 +235,6 @@ if not "%%a"=="wininit.exe" (
 if not "%%a"=="winlogon.exe" (
 if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
+if not "%%a"=="WUDFCompanionHost.exe" (
 wmic process where name='%%a' delete >nul 2>&1
-)))))))))))))))))))))))))))))))))))))
+))))))))))))))))))))))))))))))))))))))
