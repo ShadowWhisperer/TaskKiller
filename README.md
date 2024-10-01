@@ -52,6 +52,7 @@ They were taken from a pro version of XP, when this script was first written.
     winlogon.exe                             (
     WMIC.exe                                 (
     WmiPrvSE.exe                             (Win Manage Instrumentation)            - 
+    WUDFCompanionHost.exe                    (Windows User-mode Driver Framework..)  - Crashes USB drivers  
     
     
     
