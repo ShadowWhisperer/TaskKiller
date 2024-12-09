@@ -4,7 +4,7 @@
 :: Creator: ShadowWhisperer
 ::  Github: https://github.com/ShadowWhisperer
 :: Created: Sometime before 2015
-:: Updated: 10/20/2023
+:: Updated: 12/09/2024
 ::
 ::
 ::  Works with Windows XP Pro and all other verions after.
@@ -29,17 +29,26 @@
 del "%tmp%\1.txt" >nul 2>&1
 del "%tmp%\2.txt" >nul 2>&1
 del "%tmp%\3.txt" >nul 2>&1
-WMIC /OUTPUT:"%tmp%\1.txt" path win32_process get Caption /format:csv
-for /f "tokens=1,* delims=," %%A in ('type "%tmp%\1.txt"') do echo %%~nxB|find "."|find /v "svchost.exe">>"%tmp%\3.txt"
-sort "%tmp%\3.txt" /O "%tmp%\3.txt"
-setlocal enabledelayedexpansion
-for /f "tokens=*" %%a in ('type "%tmp%\3.txt"') do (
- if "%%a" neq "!last!" (
-  echo %%a>>"%tmp%\2.txt"
-  set "last=%%a"
- )
+:: WMIC
+if exist "C:\Windows\System32\wbem\wmic.exe" (
+ WMIC /OUTPUT:"%temp%\1.txt" path win32_process get Caption /format:csv
+ for /f "tokens=1,* delims=," %%A in ('type "%temp%\1.txt"') do echo %%~nxB|find "."|find /v "svchost.exe">>"%temp%\3.txt"
+ sort "%temp%\3.txt" /O "%temp%\3.txt"
+ setlocal enabledelayedexpansion
+ for /f "tokens=*" %%a in ('type "%temp%\3.txt"') do (
+  if "%%a" neq "!last!" (
+   echo %%a>>"%temp%\2.txt"
+   set "last=%%a"
+   )
+   )
+    endlocal
+) else (
+:: PowerShell
+powershell -NoProfile -Command ^
+    "Get-Process | Where-Object { $_.Path -ne $null } | ForEach-Object { [System.IO.Path]::GetFileName($_.Path) } | Out-File -FilePath '%tmp%\1.txt' -Encoding ASCII"
+powershell -NoProfile -Command ^
+    "Get-Content '%tmp%\1.txt' | Sort-Object -Unique | ForEach-Object { if ($_ -ne 'svchost.exe' -and $_ -ne '') { $_ } } | Out-File -FilePath '%tmp%\2.txt' -Encoding ASCII"
 )
-endlocal
 
 for /f "skip=1 tokens=*" %%a in ('type "%tmp%\2.txt"') do (
 if not "%%a"=="AWCC.Service.exe" (
@@ -187,17 +196,26 @@ sc stop "%%a" >nul 2>&1
 del "%tmp%\1.txt" >nul 2>&1
 del "%tmp%\2.txt" >nul 2>&1
 del "%tmp%\3.txt" >nul 2>&1
-WMIC /OUTPUT:"%tmp%\1.txt" path win32_process get Caption /format:csv
-for /f "tokens=1,* delims=," %%A in ('type "%tmp%\1.txt"') do echo %%~nxB|find "."|find /v "svchost.exe">>"%tmp%\3.txt"
-sort "%tmp%\3.txt" /O "%tmp%\3.txt"
-setlocal enabledelayedexpansion
-for /f "tokens=*" %%a in ('type "%tmp%\3.txt"') do (
- if "%%a" neq "!last!" (
-  echo %%a>>"%tmp%\2.txt"
-  set "last=%%a"
- )
+:: WMIC
+if exist "C:\Windows\System32\wbem\wmic.exe" (
+ WMIC /OUTPUT:"%temp%\1.txt" path win32_process get Caption /format:csv
+ for /f "tokens=1,* delims=," %%A in ('type "%temp%\1.txt"') do echo %%~nxB|find "."|find /v "svchost.exe">>"%temp%\3.txt"
+ sort "%temp%\3.txt" /O "%temp%\3.txt"
+ setlocal enabledelayedexpansion
+ for /f "tokens=*" %%a in ('type "%temp%\3.txt"') do (
+  if "%%a" neq "!last!" (
+   echo %%a>>"%temp%\2.txt"
+   set "last=%%a"
+   )
+   )
+    endlocal
+) else (
+:: PowerShell
+powershell -NoProfile -Command ^
+    "Get-Process | Where-Object { $_.Path -ne $null } | ForEach-Object { [System.IO.Path]::GetFileName($_.Path) } | Out-File -FilePath '%tmp%\1.txt' -Encoding ASCII"
+powershell -NoProfile -Command ^
+    "Get-Content '%tmp%\1.txt' | Sort-Object -Unique | ForEach-Object { if ($_ -ne 'svchost.exe' -and $_ -ne '') { $_ } } | Out-File -FilePath '%tmp%\2.txt' -Encoding ASCII"
 )
-endlocal
 
 for /f "skip=1 tokens=*" %%a in ('type "%tmp%\2.txt"') do (
 if not "%%a"=="AWCC.Service.exe" (
@@ -236,5 +254,5 @@ if not "%%a"=="winlogon.exe" (
 if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
 if not "%%a"=="WUDFCompanionHost.exe" (
-wmic process where name='%%a' delete >nul 2>&1
+taskkill /im "%%a" /f /t >nul 2>&1
 ))))))))))))))))))))))))))))))))))))))
