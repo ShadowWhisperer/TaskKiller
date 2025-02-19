@@ -25,10 +25,11 @@
 ::
 
 
-:#Kill Processes (1)
+:#Kill Processes (1/2)
 del "%tmp%\1.txt" >nul 2>&1
 del "%tmp%\2.txt" >nul 2>&1
 del "%tmp%\3.txt" >nul 2>&1
+
 :: WMIC
 if exist "C:\Windows\System32\wbem\wmic.exe" (
  WMIC /OUTPUT:"%temp%\1.txt" path win32_process get Caption /format:csv
@@ -52,6 +53,9 @@ powershell -NoProfile -Command ^
 
 for /f "skip=1 tokens=*" %%a in ('type "%tmp%\2.txt"') do (
 if not "%%a"=="AWCC.Service.exe" (
+if not "%%a"=="avp.exe" (
+if not "%%a"=="Classic Shell.exe" (
+if not "%%a"=="ClassicStartMenu.exe" (
 if not "%%a"=="cmd.exe" (
 if not "%%a"=="CMGShieldSvc.exe" (
 if not "%%a"=="conhost.exe" (
@@ -66,6 +70,7 @@ if not "%%a"=="dwm.exe" (
 if not "%%a"=="EmsService.exe" (
 if not "%%a"=="EmsServiceHelper.exe" (
 if not "%%a"=="explorer.exe" (
+if not "%%a"=="Explorer.EXE" (
 if not "%%a"=="fontdrvhost.exe" (
 if not "%%a"=="LsaIso.exe" (
 if not "%%a"=="lsass.exe" (
@@ -73,6 +78,7 @@ if not "%%a"=="lsm.exe" (
 if not "%%a"=="MDLCSvc.exe" (
 if not "%%a"=="MsMpEng.exe" (
 if not "%%a"=="NisSrv.exe" (
+if not "%%a"=="notepad.exe" (
 if not "%%a"=="obexsrv.exe" (
 if not "%%a"=="PRSvc.exe" (
 if not "%%a"=="sc.exe" (
@@ -88,8 +94,7 @@ if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
 if not "%%a"=="WUDFCompanionHost.exe" (
 taskkill /im "%%a" /f /t >nul 2>&1
-)))))))))))))))))))))))))))))))))))))
-
+))))))))))))))))))))))))))))))))))))))))))
 
 :#Stop Services (1)
 del "%tmp%\1.txt" >nul 2>&1
@@ -192,10 +197,11 @@ sc stop "%%a" >nul 2>&1
 
 
 
-:#Kill Processes (2)
+:#Kill Processes (2/2)
 del "%tmp%\1.txt" >nul 2>&1
 del "%tmp%\2.txt" >nul 2>&1
 del "%tmp%\3.txt" >nul 2>&1
+
 :: WMIC
 if exist "C:\Windows\System32\wbem\wmic.exe" (
  WMIC /OUTPUT:"%temp%\1.txt" path win32_process get Caption /format:csv
@@ -219,6 +225,9 @@ powershell -NoProfile -Command ^
 
 for /f "skip=1 tokens=*" %%a in ('type "%tmp%\2.txt"') do (
 if not "%%a"=="AWCC.Service.exe" (
+if not "%%a"=="avp.exe" (
+if not "%%a"=="Classic Shell.exe" (
+if not "%%a"=="ClassicStartMenu.exe" (
 if not "%%a"=="cmd.exe" (
 if not "%%a"=="CMGShieldSvc.exe" (
 if not "%%a"=="conhost.exe" (
@@ -233,6 +242,7 @@ if not "%%a"=="dwm.exe" (
 if not "%%a"=="EmsService.exe" (
 if not "%%a"=="EmsServiceHelper.exe" (
 if not "%%a"=="explorer.exe" (
+if not "%%a"=="Explorer.EXE" (
 if not "%%a"=="fontdrvhost.exe" (
 if not "%%a"=="LsaIso.exe" (
 if not "%%a"=="lsass.exe" (
@@ -240,6 +250,7 @@ if not "%%a"=="lsm.exe" (
 if not "%%a"=="MDLCSvc.exe" (
 if not "%%a"=="MsMpEng.exe" (
 if not "%%a"=="NisSrv.exe" (
+if not "%%a"=="notepad.exe" (
 if not "%%a"=="obexsrv.exe" (
 if not "%%a"=="PRSvc.exe" (
 if not "%%a"=="sc.exe" (
@@ -255,4 +266,4 @@ if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
 if not "%%a"=="WUDFCompanionHost.exe" (
 taskkill /im "%%a" /f /t >nul 2>&1
-))))))))))))))))))))))))))))))))))))))
+))))))))))))))))))))))))))))))))))))))))))
