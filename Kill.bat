@@ -80,6 +80,8 @@ if not "%%a"=="MsMpEng.exe" (
 if not "%%a"=="NisSrv.exe" (
 if not "%%a"=="notepad.exe" (
 if not "%%a"=="obexsrv.exe" (
+if not "%%a"=="peerblock.exe" (
+if not "%%a"=="PeerBlockPortable.exe" (
 if not "%%a"=="PRSvc.exe" (
 if not "%%a"=="sc.exe" (
 if not "%%a"=="services.exe" (
@@ -93,8 +95,9 @@ if not "%%a"=="winlogon.exe" (
 if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
 if not "%%a"=="WUDFCompanionHost.exe" (
+if not "%%a"=="DellSupportAssistRemedationService.exe" (
 taskkill /im "%%a" /f /t >nul 2>&1
-))))))))))))))))))))))))))))))))))))))))))
+)))))))))))))))))))))))))))))))))))))))))))))
 
 :#Stop Services (1)
 del "%tmp%\1.txt" >nul 2>&1
@@ -196,7 +199,6 @@ sc stop "%%a" >nul 2>&1
 ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
 
-
 :#Kill Processes (2/2)
 del "%tmp%\1.txt" >nul 2>&1
 del "%tmp%\2.txt" >nul 2>&1
@@ -252,6 +254,8 @@ if not "%%a"=="MsMpEng.exe" (
 if not "%%a"=="NisSrv.exe" (
 if not "%%a"=="notepad.exe" (
 if not "%%a"=="obexsrv.exe" (
+if not "%%a"=="peerblock.exe" (
+if not "%%a"=="PeerBlockPortable.exe" (
 if not "%%a"=="PRSvc.exe" (
 if not "%%a"=="sc.exe" (
 if not "%%a"=="services.exe" (
@@ -265,5 +269,6 @@ if not "%%a"=="winlogon.exe" (
 if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
 if not "%%a"=="WUDFCompanionHost.exe" (
+if not "%%a"=="DellSupportAssistRemedationService.exe" (
 taskkill /im "%%a" /f /t >nul 2>&1
-))))))))))))))))))))))))))))))))))))))))))
+)))))))))))))))))))))))))))))))))))))))))))))
