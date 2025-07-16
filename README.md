@@ -27,6 +27,7 @@ They were taken from a pro version of XP, when this script was first written.
     Dell.SecurityFramework.LocalServer.exe   (Dell SecurityFramework)                - BSOD
     devmonsrv.exe                            (Intel Wifi Driver)                     - Denied
     DFSSvc.exe                               (Dell Foundation Services)              - BSOD
+    DellSupportAssistRemedationService.exe   (Dell SupportAssist Remediation...)     - BSOD
     dllhost.exe                              (Controls DLL Files)                    - 
     dwm.exe                                  (Desktop Window Manager)                - Windows Themes crash loop
     EmsService.exe                           (
