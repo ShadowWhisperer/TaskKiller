@@ -4,7 +4,7 @@
 :: Creator: ShadowWhisperer
 ::  Github: https://github.com/ShadowWhisperer
 :: Created: Sometime before 2015
-:: Updated: 12/09/2024
+:: Updated: 2/18/2026
 ::
 ::
 ::  Works with Windows XP Pro and all other verions after.
@@ -96,8 +96,10 @@ if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
 if not "%%a"=="WUDFCompanionHost.exe" (
 if not "%%a"=="DellSupportAssistRemedationService.exe" (
+if not "%%a"=="OpenConsole.exe" (
+if not "%%a"=="WindowsTerminal.exe" (
 taskkill /im "%%a" /f /t >nul 2>&1
-)))))))))))))))))))))))))))))))))))))))))))))
+)))))))))))))))))))))))))))))))))))))))))))))))
 
 :#Stop Services (1)
 del "%tmp%\1.txt" >nul 2>&1
@@ -270,5 +272,8 @@ if not "%%a"=="WMIC.exe" (
 if not "%%a"=="WmiPrvSE.exe" (
 if not "%%a"=="WUDFCompanionHost.exe" (
 if not "%%a"=="DellSupportAssistRemedationService.exe" (
+if not "%%a"=="OpenConsole.exe" (
+if not "%%a"=="WindowsTerminal.exe" (
 taskkill /im "%%a" /f /t >nul 2>&1
-)))))))))))))))))))))))))))))))))))))))))))))
+)))))))))))))))))))))))))))))))))))))))))))))))
+
