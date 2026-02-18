@@ -41,6 +41,7 @@ They were taken from a pro version of XP, when this script was first written.
     MsMpEng.exe                             (Windows Defender)                      - Denied / BSOD on Vista
     NisSrv.exe                              
     obexsrv.exe                             (Intel Bluetooth)                       - BSOD
+    OpenConsole.exe                         (Open Console)                          - Windows 11 CMD
     PRSvc.exe                               (Dell Product Registration)             - BSOD
     sc.exe                                  (Service Manager)                       - Used by this script
     services.exe                            
@@ -51,6 +52,7 @@ They were taken from a pro version of XP, when this script was first written.
     Taskmgr.exe                             (Task Manager)                          - All versions after Windows 8
     wininit.exe                             
     winlogon.exe                            
+    WindowsTerminal.exe                     (Windows Terminal)                      - Windows 11 CMD
     WMIC.exe                                
     WmiPrvSE.exe                            (Win Manage Instrumentation)            - 
     WUDFCompanionHost.exe                   (Windows User-mode Driver Framework..)  - Crashes USB drivers  
